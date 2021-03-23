@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import QuestionComponent from '../Components/QuestionComponent/QuestionComponent';
+import Home from '../Components/Home/Home';
 
 class App extends React.Component {
   render() {
@@ -8,7 +8,7 @@ class App extends React.Component {
       <div className="App">
         <h2>INSIDE APP COMPONENT</h2>
         <button className="btn btn-info">I am a button</button>
-        <QuestionComponent/>
+        <Home/>
       </div>
     );
   }
