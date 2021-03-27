@@ -6,15 +6,9 @@ class QuestionComponent extends React.Component {
     answers: [],
   }
 
-  createAnswersArray = () => {
-    const { question } = this.props;
-    const { answers } = this.state;
-    answers.push(question.correct_answer);
-  }
-
   render() {
-    const { question } = this.props;
-    const { answers } = this.state;
+    const { question, answers } = this.props;
+
     console.error('answers', answers);
     console.error('question from q component', question);
     return (
