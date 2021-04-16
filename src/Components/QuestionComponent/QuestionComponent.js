@@ -14,12 +14,6 @@ class QuestionComponent extends React.Component {
   // question: "What album did Gorillaz release in 2017?"
   // type: "multiple"
 
-  // get questions
-  // select both correct_answer and incorrect_answers
-  // push incorrect_answers into a new array called answerOptions
-  // push correct_answer into answerOptions
-  // somehow randomize these
-
   getTriviaAnswers = () => {
     const { answers } = this.state;
     const { question } = this.props;
@@ -27,6 +21,7 @@ class QuestionComponent extends React.Component {
       answers.push(answer);
     });
     answers.push(question.correct_answer);
+    // using npm package to randomize answers
     shuffle(answers);
     console.error('answers shuffled?', answers);
     this.setState({ answers });
@@ -40,13 +35,21 @@ class QuestionComponent extends React.Component {
     const { question } = this.props;
     const { answers } = this.state;
 
+    const multiple = () => {
+      answers.forEach((i) => {
+      <div>
+        <p>{i}</p>
+      </div>;
+      });
+    };
+
     console.error('question from q component', question);
     return (
       <div>
         <h1> Question Component</h1>
         <h1>{question.category}</h1>
         <p>{question.question}</p>
-        <p>{answers}</p>
+        <p>{multiple()}</p>
       </div>
     );
   }
