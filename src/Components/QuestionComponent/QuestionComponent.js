@@ -23,7 +23,7 @@ class QuestionComponent extends React.Component {
     answers.push(question.correct_answer);
     // using npm package to randomize answers
     shuffle(answers);
-    console.error('answers shuffled?', answers);
+    // console.error('answers shuffled?', answers);
     this.setState({ answers });
   }
 
@@ -36,11 +36,12 @@ class QuestionComponent extends React.Component {
     const { answers } = this.state;
 
     const multiple = () => {
-      answers.forEach((i) => {
       <div>
-        <p>{i}</p>
+        <p>{answers[0]}</p>
+        <p>{answers[1]}</p>
+        <p>{answers[2]}</p>
+        <p>{answers[3]}</p>
       </div>;
-      });
     };
 
     console.error('question from q component', question);
@@ -49,7 +50,7 @@ class QuestionComponent extends React.Component {
         <h1> Question Component</h1>
         <h1>{question.category}</h1>
         <p>{question.question}</p>
-        <p>{multiple()}</p>
+          {answers.map((a) => (<p>{a}</p>))}
       </div>
     );
   }
