@@ -32,7 +32,7 @@ class QuestionComponent extends React.Component {
         <h1> Question Component</h1>
         <h1>{question.category}</h1>
         <p>{question.question}</p>
-          {answers.map((a) => (<p>{a}</p>))}
+          {answers.map((a) => (<button>{a}</button>))}
       </div>
     );
   }

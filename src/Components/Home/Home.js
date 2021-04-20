@@ -22,7 +22,6 @@ class Home extends React.Component {
     const displayQuestion = questions.map((question) => <QuestionComponent question={question}/>);
     return (
       <div>
-        <h1> Home </h1>
         {displayQuestion}
       </div>
     );
