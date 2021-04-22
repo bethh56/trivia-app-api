@@ -5,6 +5,7 @@ const shuffle = require('shuffle-array');
 class QuestionComponent extends React.Component {
   state = {
     answers: [],
+    correctAnswer: 0,
   }
 
   getTriviaAnswers = () => {
@@ -24,15 +25,27 @@ class QuestionComponent extends React.Component {
     this.getTriviaAnswers();
   }
 
+  selectAnswer = (e) => {
+    const { question } = this.props;
+    const { correctAnswer } = this.state;
+    if (e.target.value === question.correct_answer) {
+      console.log(`correct answer is ${question.correct_answer}`);
+    }
+    //     this.setState({  correctAnswer + 1 });
+    // } else this.setState({  correctAnswer === 1 });
+    // );
+  };
+
   render() {
     const { question } = this.props;
-    const { answers } = this.state;
+    const { answers, correctAnswer } = this.state;
+
     return (
       <div>
-        <h1> Question Component</h1>
+        <h1>Correct Answers = {correctAnswer}</h1>
         <h1>{question.category}</h1>
         <p>{question.question}</p>
-          {answers.map((a) => (<button>{a}</button>))}
+          {answers.map((a) => (<button className='btn btn-primary' onClick={this.selectAnswer} value={a}>{a}</button>))}
       </div>
     );
   }
